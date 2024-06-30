@@ -1,6 +1,6 @@
 #include <ArduinoJson.h>
 #include <ESP8266HTTPClient.h>
-String baseUrl = "http://192.168.1.11:2000";
+String baseUrl = "http://103.149.177.125:2000/api";
 String user[2];
 String candidate[2];
 
@@ -10,7 +10,7 @@ void getUser(String uid)
     HTTPClient http;
     WiFiClient client;
 
-    String url = baseUrl + "/api/user?uid=" + uid;
+    String url = baseUrl + "/user?uid=" + uid;
 
     bool beginResult = http.begin(client, url);
 
@@ -62,7 +62,7 @@ void registerUid(String uid)
     Serial.print("Serialized JSON: ");
     Serial.println(jsonString);
 
-    String url = baseUrl + "/api/register";
+    String url = baseUrl + "/register";
 
     bool beginResult = http.begin(client, url);
 
@@ -108,7 +108,7 @@ void createResult(String selection, String uid)
     Serial.print("Serialized JSON: ");
     Serial.println(jsonString);
 
-    String url = baseUrl + "/api/post/result";
+    String url = baseUrl + "/post/result";
 
     bool beginResult = http.begin(client, url);
 

@@ -78,6 +78,7 @@ String readNfcTag()
     NfcTag tag = nfc.read();
     String tagId = tag.getUidString();
     tagId.replace(" ", "");
+    Serial.println(tagId);
     return tagId;
   }
   return "";
